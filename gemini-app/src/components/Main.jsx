@@ -15,8 +15,26 @@ function Main(){
                 </div>
                 <div className="cards">
                     <div className="card">
-                        <p>Suggest </p>
-                        <img src="" alt="" />
+                        <p>Suggest places to go in Almaty</p>
+                    </div>
+                    <div className="card">
+                        <p>Think of a startup ideas</p>
+                    </div>
+                    <div className="card">
+                        <p>Let's play a game</p>
+                    </div>
+                    <div className="card">
+                        <p>What is Blockchain?</p>
+                    </div>
+                </div>
+
+                <div className="main-bottom">
+                    <div className="search-box">
+                        <input type="text" placeholder='Enter a prompt here' />
+                        <div>
+                            <img src={images.microphone} alt="" />
+                            <img src="" alt="" />
+                        </div>
                     </div>
                 </div>
             </div>
