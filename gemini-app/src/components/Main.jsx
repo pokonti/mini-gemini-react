@@ -1,8 +1,24 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import './Main.css'
 import images from "../assets/images";
+import { Context } from '../context/Context';
 
 function Main(){
+
+    const {onSent, recentPrompt, showResult, loading, resultData, setInput, input} = useContext(Context)
+
+
+
+
+    const [inputValue, setInputValue] = useState("")
+
+    const handleChange = (e) => {
+        setInput(e.target.value);
+        setInputValue(e.target.value);
+      };
+
+    const isEmpty = inputValue.trim() === "";
+
     return(
         <div className="main">
             <div className="nav">
@@ -30,10 +46,21 @@ function Main(){
 
                 <div className="main-bottom">
                     <div className="search-box">
-                        <input type="text" placeholder='Enter a prompt here' />
+                        <input 
+                            type="text"
+                            value={inputValue} 
+                            onChange={handleChange} 
+                            placeholder='Ask Gemini' />
                         <div>
+                            {isEmpty ? 
                             <img src={images.microphone} alt="" />
-                            <img src="" alt="" />
+                            : 
+                            <img onClick={()=> {
+                                onSent();
+                                setInput(""); 
+                                setInputValue("");
+                            }} src={images.send} alt="" /> }
+                            
                         </div>
                     </div>
                 </div>
