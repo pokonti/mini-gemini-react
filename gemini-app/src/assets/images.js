@@ -6,7 +6,8 @@ import setting from "./setting.png";
 import profile from "./profile.jpeg";
 import send from "./send.png";
 import microphone from "./microphone.png";
+import icon from "./icon.png";
 
-const images = { menu, message, plus, question, setting, profile, send, microphone };
+const images = { menu, message, plus, question, setting, profile, send, microphone, icon };
 
 export default images;

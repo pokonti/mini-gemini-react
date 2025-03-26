@@ -12,10 +12,17 @@ const ContextProvider = (props) => {
     const [loading, setLoading] = useState(false);
     const [resultData, setResultData] = useState("");
 
+    const newChat = () => {
+        setLoading(false)
+        setShowResult(false)
+    }
+
     const onSent = async (prompt) => {
         setResultData("")
         setLoading(true)
         setShowResult(true)
+        setRecentPrompt(input)
+        setPrevPrompts(p=>[...p, input])
         const response = await run(input)
         setResultData(response)
         setLoading(false)
@@ -31,7 +38,8 @@ const ContextProvider = (props) => {
         loading,
         resultData,
         input,
-        setInput
+        setInput,
+        newChat
     }
 
     return(
@@ -41,3 +49,4 @@ const ContextProvider = (props) => {
     )
 }
 export default ContextProvider
+
